@@ -8,7 +8,8 @@ An independent, browser-based learning tracker built from **HTML, CSS, Tailwind 
 2. Prefer a stable local origin for reliable data storage: put the file in its own folder, run `python3 -m http.server 8000` from that folder and open `http://localhost:8000/`.
 3. Select **Daily lessons** to study, practice and take a short quiz. Complete all three checkpoints to mark the day complete.
 4. Open **Interactive labs**, **Weekly projects** and **Readiness assessment** for additional learning tools.
-5. Use **Settings → Export JSON backup** regularly. **Import JSON** restores progress on another device/browser.
+5. Every screen has a shareable hash URL, including nested lesson paths such as `#/learn/week-2/derivatives-and-sensitivity` (week/day slugs plus optional tab: `…/practice`, `…/quiz`, `…/notes`). Stopping the timer plays a beep; the focus length and beep can be tuned in **Settings → Focus timer & sound**.
+6. Use **Settings → Export JSON backup** regularly. **Import JSON** restores progress on another device/browser.
 
 The learning experience works without downloading Python packages, but actual Python examples need to be copied into a local Python environment or notebook. See official reference links inside each week.
 
@@ -20,7 +21,7 @@ The learning experience works without downloading Python packages, but actual Py
 - 9 weekly applied projects with four independently tracked tasks and local reflection/evidence fields.
 - 6 interactive math/concept labs: tensor memory; gradient descent; toy text segmentation; attention softmax; LoRA parameter counts; old/new capability retention.
 - Model-lifecycle flowchart with clickable conceptual nodes.
-- Search across the curriculum, notes and bookmarks, 25-minute focus timer, manual study-time recording.
+- Search across the curriculum, notes and bookmarks, adjustable focus timer (1–120 min, with a completion beep), manual study-time recording.
 - Dynamic charts and weekly progress analytics based on saved user data.
 - 7-skill, 0–21 self-rated readiness assessment with local recommendations.
 - Light and dark **monochrome** themes, mobile navigation, and JSON export/import/reset.

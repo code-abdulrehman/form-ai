@@ -1,15 +1,27 @@
 # FORM / AI — A nine-week interactive AI research learning LMS
 
-An independent, browser-based learning tracker built from **HTML, CSS, Tailwind CDN (optional), vanilla JavaScript, IndexedDB, and optional Lucide/Chart.js CDNs**. No React, build framework, account, backend, external AI API or ChatGPT integration is needed.
+An independent, browser-based learning tracker built from **HTML, CSS, vanilla JavaScript, IndexedDB** and optional CDNs (Lucide icons, Chart.js, Google Fonts: Poppins + Nunito Sans). No React, build framework, account, backend, external AI API or ChatGPT integration is needed.
 
 ## Quick start
 
-1. Download `index.html` and open it in a modern browser.
-2. Prefer a stable local origin for reliable data storage: put the file in its own folder, run `python3 -m http.server 8000` from that folder and open `http://localhost:8000/`.
+1. Download `index.html` and open it in a modern browser. For the full PWA experience (install prompt + offline cache), serve the whole folder over `http://localhost:8000`.
+2. **Prefer a stable local origin for reliable data storage** (IndexedDB): put the files in their own folder, run `python3 -m http.server 8000` from that folder and open `http://localhost:8000/`.
 3. Select **Daily lessons** to study, practice and take a short quiz. Complete all three checkpoints to mark the day complete.
 4. Open **Interactive labs**, **Weekly projects** and **Readiness assessment** for additional learning tools.
-5. Every screen has a shareable hash URL, including nested lesson paths such as `#/learn/week-2/derivatives-and-sensitivity` (week/day slugs plus optional tab: `…/practice`, `…/quiz`, `…/notes`). Stopping the timer plays a beep; the focus length and beep can be tuned in **Settings → Focus timer & sound**.
-6. Use **Settings → Export JSON backup** regularly. **Import JSON** restores progress on another device/browser.
+5. Stopping the focus timer in the top bar plays an optional completion chime; the session length (1–180 minutes) and sound can be tuned in **Settings & backup**. The dashboard "Study time" card accepts quick-logs (+15m/+25m/+45m) and counts an in-progress focus session live.
+6. Use **Settings → Export backup** regularly. **Restore backup** imports the JSON on another device/browser.
+
+## Get the latest build / update a running installation
+
+- Sources live in `builder/` (template, styles, app logic, curriculum JSON). Regenerate everything with:
+
+  ```bash
+  python3 builder/build.py
+  ```
+
+  This (re)writes `index.html`, `manifest.webmanifest`, `sw.js` and `icons/` **at the project root** — builder/ keeps only editable sources.
+- When the app is served over `http://localhost:8000` (or https), the service worker fetches the app shell **network-first**: the newest build is picked up on the very next load, and the page auto-reloads once when the updated service worker takes control. Offline, the last cached copy is served.
+- To force-refresh by hand: `Ctrl+Shift+R`, or DevTools → Application → Service workers → Unregister, then reload.
 
 The learning experience works without downloading Python packages, but actual Python examples need to be copied into a local Python environment or notebook. See official reference links inside each week.
 
@@ -19,12 +31,13 @@ The learning experience works without downloading Python packages, but actual Py
 - 63 copyable Python/shell starter snippets (one per day), teaching notes and short multiple-choice checks.
 - 3 milestones per day: **concept learned → practice verified → quiz passed**.
 - 9 weekly applied projects with four independently tracked tasks and local reflection/evidence fields.
-- 6 interactive math/concept labs: tensor memory; gradient descent; toy text segmentation; attention softmax; LoRA parameter counts; old/new capability retention.
+- 32 interactive numeric simulations (including user-created custom labs): tensor memory; gradient descent; tokenizer; attention softmax; LoRA parameter counts; forgetting curves and more.
 - Model-lifecycle flowchart with clickable conceptual nodes.
 - Search across the curriculum, notes and bookmarks, adjustable focus timer (1–120 min, with a completion beep), manual study-time recording.
 - Dynamic charts and weekly progress analytics based on saved user data.
 - 7-skill, 0–21 self-rated readiness assessment with local recommendations.
-- Light and dark themes built on a slate color scale with a single mauve primary accent, mobile navigation, and JSON export/import/reset.
+- Light and dark themes built on a slate color scale with a single mauve primary accent, Poppins headings + Nunito Sans body (Google Fonts), custom mobile navigation, and JSON export/import/reset.
+- **Installable PWA**: `manifest.webmanifest`, `sw.js` offline app-shell cache and generated `icons/` (192/512 + maskable) ship next to `index.html`.
 
 ## Technology and privacy
 

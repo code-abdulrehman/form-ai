@@ -66,7 +66,7 @@ The app runs **numerical JavaScript demonstrations**, not Python training, neura
 
 ## Editing and extending
 
-To modify the course, edit `builder/curriculum.json` or `builder/snippets.json`, change `builder/app.js` or `builder/template.html`, then run `python3 builder/build.py` from the project root. The generated `index.html` always lands in the project root, regardless of where you invoke the script from. You do not need Node.js to build the app. Keep exactly one stable ID per day (`d1`–`d63`) to preserve compatibility with existing backups. If you change the state schema, add an explicit versioned migration and test backup import before distributing.
+To modify the course, edit `builder/curriculum.json` or `builder/snippets.json`, change `builder/app.js` or `builder/template.html`, then run `python3 builder/build.py` from the project root. The generated `index.html` always lands in the project root, regardless of where you invoke the script from. Building requires Node.js for JavaScript syntax validation. Invalid JavaScript stops the build before existing release files are replaced. Running the generated app does not require Node.js. Keep exactly one stable ID per day (`d1`–`d63`) to preserve compatibility with existing backups. If you change the state schema, add an explicit versioned migration and test backup import before distributing.
 
 ## Content boundaries
 

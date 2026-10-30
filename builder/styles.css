@@ -688,9 +688,10 @@ a:hover {
 input {
     accent-color: var(--primary);
     width: 16px;
-    height: 16px;
+    height: 36px;
     flex: 0 0 auto;
-    margin-top: 2px
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .status-dot {
@@ -1053,7 +1054,8 @@ input {
     border-radius: 10px;
     padding: 11px 12px;
     color: var(--ink);
-    outline: none
+    outline: none;
+    height: 36px;
 }
 
 .field:focus,
@@ -2286,3 +2288,14 @@ details.guide[open] .guide-chevron {
 .week-link svg{width:14px;height:14px;color:var(--muted);flex:0 0 14px}
 .week-link b{color:var(--primary-ink)}
 .week-link:hover b{text-decoration:underline;text-decoration-color:var(--primary)}
+
+/* Stopwatch dial (stopwatch-style SVG) */
+.timer-dial{width:30px;height:30px;display:grid;place-items:center;flex:0 0 30px}
+.timer-dial svg{width:30px;height:30px;display:block}
+.timer-dial .dial-bg{fill:none;stroke:#94a3b8;stroke-width:3;opacity:.7}
+.timer-dial .dial-fg{fill:none;stroke:var(--primary);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:97.39;stroke-dashoffset:0;transition:stroke-dashoffset .5s linear}
+.timer-dial.active .dial-fg{
+    /* filter:drop-shadow(0 0 4px rgba(154,91,120,.6)); */
+    stroke:var(--primary-hover)}
+.timer-dial .dial-hand{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;fill:none;opacity:.85}
+/* .timer-dial.active .dial-fg{filter:drop-shadow(0 0 3px rgba(154,91,120,.55))} */

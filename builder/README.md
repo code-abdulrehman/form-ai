@@ -1,6 +1,6 @@
 # FORM / AI Learning LMS — v2
 
-A complete standalone learning workspace for an **8-week core AI research curriculum + optional Week 9 capstone**. It is built with **HTML, CSS, vanilla JavaScript, IndexedDB** and optional CDN libraries. It requires **no account, backend, ChatGPT integration, API key, Node.js, or production build server**.
+A complete standalone learning workspace for an **8-week core AI research curriculum + optional Week 9 capstone**. It is built with **HTML, CSS, vanilla JavaScript, IndexedDB** and optional CDN libraries. It requires **no account, backend, ChatGPT integration, API key, or production build server**.
 
 ## Run the application
 
@@ -42,6 +42,10 @@ The app will attempt **IndexedDB**, fall back to **localStorage** if needed, and
 
 The lab library is **not a replacement for Jupyter and real GPU training**: the interactive charts are numerical JavaScript demonstrations; optional browser Python uses a separate runtime downloaded from a CDN, supports common Python and NumPy examples, and **does not include PyTorch, Transformers, PEFT or CUDA**. For those, copy the code into a configured local Jupyter or other Python notebook. The client-side worker is not a security sandbox; only run code you understand.
 
+## Navigation links
+
+Pages and tabs use URL fragments, for example `#/settings`, `#/learn/d12/quiz`, and `#/labs/gradient/python`. Refresh restores that view; browser Back/Forward follows navigation. Opening without a fragment restores the last view saved on this device when local storage is available. Explicit links take priority, and invalid routes fall back to Overview.
+
 ## Editable source files
 
 - `index.html` — fully standalone, generated HTML (contains CSS, JS and all course data inline).
@@ -63,6 +67,8 @@ Edit any source file (except generated `index.html`), then run:
 ```bash
 python3 build.py
 ```
+
+Node.js must be installed for build-time JavaScript syntax validation. The build checks the assembled inline scripts before writing release files; syntax errors stop the build and preserve the existing release.
 
 This writes a new `index.html`. You may rename it however you like, host it on your own site, or run it directly from the local development server.
 

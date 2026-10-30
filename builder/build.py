@@ -2,7 +2,11 @@
 """Regenerate the FORM / AI app: index.html at the project root + PWA assets
 (manifest.webmanifest, sw.js, icons/). Sources stay in builder/."""
 import json
+import shutil
+import subprocess
+import sys
 import time
+from html.parser import HTMLParser
 from pathlib import Path
 
 # builder/ sources
@@ -25,6 +29,36 @@ js_data += 'const CHALLENGES = ' + json.dumps(challenges, ensure_ascii=False, se
 html = html.replace('/* INJECT_DATA */', js_data)
 html = html.replace('/* INJECT_LABS */', (root / 'extra_labs.js').read_text(encoding='utf-8'))
 html = html.replace('/* INJECT_APP */', (root / 'app.js').read_text(encoding='utf-8'))
+
+# Validate the actual inline scripts before replacing a working release.
+class InlineScripts(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.inline = False
+        self.scripts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'script':
+            self.inline = 'src' not in dict(attrs)
+
+    def handle_endtag(self, tag):
+        if tag == 'script':
+            self.inline = False
+
+    def handle_data(self, data):
+        if self.inline:
+            self.scripts.append(data)
+
+node = shutil.which('node')
+if not node:
+    sys.exit('Build stopped: Node.js is required to validate JavaScript. Existing release preserved.')
+scripts = InlineScripts()
+scripts.feed(html)
+checked = subprocess.run([node, '--check'], input='\n;\n'.join(scripts.scripts),
+                         text=True, capture_output=True)
+if checked.returncode:
+    sys.exit('Build stopped: invalid JavaScript. Existing release preserved.\n' + checked.stderr)
+print('Validated: generated inline JavaScript')
 (dist / 'index.html').write_text(html, encoding='utf-8')
 print('Generated:', dist / 'index.html')
 

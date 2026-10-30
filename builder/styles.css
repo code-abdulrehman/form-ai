@@ -2299,3 +2299,56 @@ details.guide[open] .guide-chevron {
     stroke:var(--primary-hover)}
 .timer-dial .dial-hand{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;fill:none;opacity:.85}
 /* .timer-dial.active .dial-fg{filter:drop-shadow(0 0 3px rgba(154,91,120,.55))} */
+
+/* Compact selectors keep mobile navigation above the study content short. */
+.compact-navigation { display: none; }
+@media(max-width:940px) {
+    .compact-navigation { display: flex; min-width: 0; }
+    .desktop-lesson-navigation, .lesson-tabs, .lab-toolbar .lab-list { display: none; }
+    .learn-layout, .learn-layout > *, .grid-two > *, .lab-toolbar { min-width: 0; }
+    .learn-layout { grid-template-columns: minmax(0, 1fr); }
+    .lesson-navigation .smart-trigger { min-width: 0; width: 100%; }
+    .lesson-navigation .smart-trigger span { white-space: normal; overflow-wrap: anywhere; }
+    .lesson-section-picker { margin: 0; padding: 12px 18px; border-block: 1px solid var(--line); }
+    .compact-navigation .smart-select { width: 100%; min-width: 0; max-width: 100%; }
+    .lab-picker { width: 100%; margin: 0; }
+    .lab-toolbar { width: 100%; gap: 8px; }
+    .learn-layout article { overflow-wrap: anywhere; }
+    .learn-layout .tag { white-space: normal; max-width: 100%; }
+    .learn-layout pre { max-width: 100%; overflow-x: auto; }
+    .learn-layout .section-head { flex-wrap: wrap; }
+}
+@media(max-width:600px) {
+    .lesson-navigation { padding: 14px; }
+    .lesson-navigation .form-label { margin-bottom: 0; }
+    .learn-layout .lesson-title { font-size: 24px; }
+    .learn-layout .padded, .learn-layout .tab-content { padding: 16px; }
+}
+
+.smart-select { min-width: 0; }
+.smart-trigger span { min-width: 0; }
+.smart-menu {
+    min-width: 0;
+    max-height: min(320px, 45dvh);
+    overscroll-behavior: contain;
+}
+.smart-option { min-height: 44px; overflow-wrap: anywhere; }
+.smart-group-label { padding: 12px 11px 5px; font-size: 10px; font-weight: 800; color: var(--muted); overflow-wrap: anywhere; }
+@media(max-width:940px) {
+    .compact-navigation .smart-trigger span { white-space: normal; overflow-wrap: anywhere; }
+    .compact-navigation .smart-trigger { min-height: 44px; }
+}
+
+/* Shared scrollbar styling for the page and every scrollable app panel. */
+html, * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) transparent;
+}
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+::-webkit-scrollbar-corner { background: transparent; }
+@media (forced-colors: active) {
+    html, * { scrollbar-color: auto; }
+}

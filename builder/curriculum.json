@@ -1,0 +1,1487 @@
+[
+  {
+    "title": "Python & numerical ML",
+    "subtitle": "Programming fluency, data, matrices and your first model",
+    "theme": "Foundations",
+    "project": "Linear regression from scratch",
+    "deliverable": "A reproducible NumPy training script, predictions, loss plot and short README.",
+    "tasks": [
+      "Generate a synthetic dataset with fixed random seed",
+      "Implement vectorized predictions, MSE and gradients",
+      "Train weights with gradient descent and chart the loss",
+      "Evaluate on held-out samples and document findings"
+    ],
+    "resources": [
+      [
+        "NumPy quickstart",
+        "https://numpy.org/doc/stable/user/quickstart.html"
+      ],
+      [
+        "Python official tutorial",
+        "https://docs.python.org/3/tutorial/"
+      ],
+      [
+        "Scikit-learn train/test split",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+      ]
+    ],
+    "id": "w1",
+    "number": 1,
+    "core": true,
+    "days": [
+      {
+        "id": "d1",
+        "number": 1,
+        "dayInWeek": 1,
+        "week": 1,
+        "title": "Python environment & reproducibility",
+        "explanation": "A virtual environment isolates packages; a fixed random seed makes stochastic demonstrations easier to reproduce.",
+        "practice": "Create a venv, print Python and NumPy versions, and sample five seeded random numbers.",
+        "quiz": "What does a virtual environment isolate?",
+        "options": [
+          "The operating system",
+          "GPU drivers",
+          "Project dependencies"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Project dependencies. A virtual environment isolates packages; a fixed random seed makes stochastic demonstrations easier to reproduce.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d2",
+        "number": 2,
+        "dayInWeek": 2,
+        "week": 1,
+        "title": "Functions, iteration & clean scripts",
+        "explanation": "Small reusable functions help separate data generation, predictions and evaluation; iterations process batches predictably.",
+        "practice": "Implement make_data(n, seed) and calculate sample means in a reusable function.",
+        "quiz": "Why use a function for data generation?",
+        "options": [
+          "It automatically improves model accuracy",
+          "It makes experiments reusable and testable",
+          "It replaces validation"
+        ],
+        "correct": 1,
+        "explanationAnswer": "It makes experiments reusable and testable. Small reusable functions help separate data generation, predictions and evaluation; iterations process batches predictably.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d3",
+        "number": 3,
+        "dayInWeek": 3,
+        "week": 1,
+        "title": "NumPy arrays & shapes",
+        "explanation": "An array shape describes its axes; for example (32, 10) represents 32 samples with 10 features each.",
+        "practice": "Build arrays of shapes (3,), (2,3), and (4,2,3), then print their dimensions.",
+        "quiz": "What does shape (32,10) often represent?",
+        "options": [
+          "32 separate models",
+          "10 samples with 32 labels",
+          "32 samples with 10 features"
+        ],
+        "correct": 2,
+        "explanationAnswer": "32 samples with 10 features. An array shape describes its axes; for example (32, 10) represents 32 samples with 10 features each.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d4",
+        "number": 4,
+        "dayInWeek": 4,
+        "week": 1,
+        "title": "Broadcasting & vectorization",
+        "explanation": "Broadcasting aligns compatible dimensions; vectorization performs bulk operations without Python loops over every element.",
+        "practice": "Normalize a 2x3 array by subtracting a three-value mean vector.",
+        "quiz": "For shape (2,3) minus (3,), what is the result shape?",
+        "options": [
+          "(2,3)",
+          "(3,2)",
+          "Invalid operation"
+        ],
+        "correct": 0,
+        "explanationAnswer": "(2,3). Broadcasting aligns compatible dimensions; vectorization performs bulk operations without Python loops over every element.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d5",
+        "number": 5,
+        "dayInWeek": 5,
+        "week": 1,
+        "title": "Dot products & matrices",
+        "explanation": "Matrix multiplication combines compatible inner dimensions and creates the outer-dimension result, a key neural-network operation.",
+        "practice": "Multiply a (4,3) feature matrix by a (3,1) weight matrix.",
+        "quiz": "What is (4,3) @ (3,1)?",
+        "options": [
+          "(3,3)",
+          "(4,3)",
+          "(4,1)"
+        ],
+        "correct": 2,
+        "explanationAnswer": "(4,1). Matrix multiplication combines compatible inner dimensions and creates the outer-dimension result, a key neural-network operation.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d6",
+        "number": 6,
+        "dayInWeek": 6,
+        "week": 1,
+        "title": "Prediction, error & dataset splits",
+        "explanation": "The model predicts targets; a loss measures error. A held-out test set checks generalization rather than memorization.",
+        "practice": "Create y=2x+1 with noise, split samples, and implement mean squared error.",
+        "quiz": "Why keep a held-out test set?",
+        "options": [
+          "To measure generalization",
+          "To maximize training-set accuracy",
+          "To remove the need for metrics"
+        ],
+        "correct": 0,
+        "explanationAnswer": "To measure generalization. The model predicts targets; a loss measures error. A held-out test set checks generalization rather than memorization.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d7",
+        "number": 7,
+        "dayInWeek": 7,
+        "week": 1,
+        "title": "Week 1 project: gradient descent",
+        "explanation": "Gradient descent adjusts parameters opposite their loss gradients; changing the learning rate affects convergence.",
+        "practice": "Train slope and bias using NumPy, and visualize loss for different learning rates.",
+        "quiz": "What does a gradient identify?",
+        "options": [
+          "How loss changes with parameters",
+          "The final correct model architecture",
+          "The GPU memory size"
+        ],
+        "correct": 0,
+        "explanationAnswer": "How loss changes with parameters. Gradient descent adjusts parameters opposite their loss gradients; changing the learning rate affects convergence.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "PyTorch & neural networks",
+    "subtitle": "Autograd, nonlinear layers, optimization and validation",
+    "theme": "Model building",
+    "project": "Train a tiny neural classifier",
+    "deliverable": "A CPU-ready PyTorch MLP with a saved state_dict and train/test metrics.",
+    "tasks": [
+      "Generate nonlinear binary-classification data",
+      "Build a 2-layer MLP with nn.Module or nn.Sequential",
+      "Train with autograd and an optimizer; plot training loss",
+      "Evaluate on a distinct test set and reload checkpoint"
+    ],
+    "resources": [
+      [
+        "PyTorch learn the basics",
+        "https://docs.pytorch.org/tutorials/beginner/basics/intro.html"
+      ],
+      [
+        "PyTorch tensors",
+        "https://docs.pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html"
+      ],
+      [
+        "PyTorch autograd",
+        "https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html"
+      ]
+    ],
+    "id": "w2",
+    "number": 2,
+    "core": true,
+    "days": [
+      {
+        "id": "d8",
+        "number": 8,
+        "dayInWeek": 1,
+        "week": 2,
+        "title": "PyTorch tensor basics",
+        "explanation": "PyTorch tensors extend numerical arrays with device placement and automatic differentiation features.",
+        "practice": "Create float32 tensors, reshape a batch, and compare with NumPy values.",
+        "quiz": "What does a tensor's dtype control?",
+        "options": [
+          "The optimizer selection",
+          "Its number of neural layers",
+          "Its numeric representation"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Its numeric representation. PyTorch tensors extend numerical arrays with device placement and automatic differentiation features.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d9",
+        "number": 9,
+        "dayInWeek": 2,
+        "week": 2,
+        "title": "Derivatives & sensitivity",
+        "explanation": "A derivative is local sensitivity. For squared error (w-2)^2, the gradient is 2(w-2).",
+        "practice": "Differentiate a quadratic by hand and verify with finite differences.",
+        "quiz": "At w=0 for (w-2)^2, what is the derivative?",
+        "options": [
+          "4",
+          "0",
+          "-4"
+        ],
+        "correct": 2,
+        "explanationAnswer": "-4. A derivative is local sensitivity. For squared error (w-2)^2, the gradient is 2(w-2).",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d10",
+        "number": 10,
+        "dayInWeek": 3,
+        "week": 2,
+        "title": "Chain rule through a graph",
+        "explanation": "The chain rule connects derivatives through composed operations such as weight → prediction → error → loss.",
+        "practice": "Draw a graph of yhat=wx and L=(yhat-y)^2, then derive dL/dw.",
+        "quiz": "Why is the chain rule important?",
+        "options": [
+          "It replaces forward inference",
+          "It propagates gradients through composed functions",
+          "It guarantees no overfitting"
+        ],
+        "correct": 1,
+        "explanationAnswer": "It propagates gradients through composed functions. The chain rule connects derivatives through composed operations such as weight → prediction → error → loss.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d11",
+        "number": 11,
+        "dayInWeek": 4,
+        "week": 2,
+        "title": "Automatic differentiation",
+        "explanation": "Autograd records differentiable operations and computes gradients for tensors marked requires_grad.",
+        "practice": "Compute a scalar loss, call backward(), inspect gradients, then clear them.",
+        "quiz": "What does loss.backward() calculate?",
+        "options": [
+          "Model checkpoint sizes",
+          "Gradients of loss with respect to trainable inputs",
+          "Prediction probabilities by default"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Gradients of loss with respect to trainable inputs. Autograd records differentiable operations and computes gradients for tensors marked requires_grad.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d12",
+        "number": 12,
+        "dayInWeek": 5,
+        "week": 2,
+        "title": "Neurons, activation & MLPs",
+        "explanation": "Linear layers alone compose into a linear map; nonlinear activations let networks model nonlinear boundaries.",
+        "practice": "Build a 2→16→1 PyTorch network with Tanh or ReLU.",
+        "quiz": "Why insert an activation between linear layers?",
+        "options": [
+          "To stop parameter updates",
+          "To make input tensors always one-dimensional",
+          "To model nonlinear relationships"
+        ],
+        "correct": 2,
+        "explanationAnswer": "To model nonlinear relationships. Linear layers alone compose into a linear map; nonlinear activations let networks model nonlinear boundaries.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d13",
+        "number": 13,
+        "dayInWeek": 6,
+        "week": 2,
+        "title": "SGD, Adam & learning rates",
+        "explanation": "Optimizers apply gradient-informed updates; too-large step sizes can oscillate or diverge.",
+        "practice": "Compare SGD training at three learning rates and record the loss curves.",
+        "quiz": "What can an excessively large learning rate cause?",
+        "options": [
+          "Divergence or oscillation",
+          "Always better generalization",
+          "Guaranteed faster convergence"
+        ],
+        "correct": 0,
+        "explanationAnswer": "Divergence or oscillation. Optimizers apply gradient-informed updates; too-large step sizes can oscillate or diverge.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d14",
+        "number": 14,
+        "dayInWeek": 7,
+        "week": 2,
+        "title": "Week 2 project: MLP classification",
+        "explanation": "A complete training pipeline uses train/test splits, a loss function, an optimizer and checkpointing.",
+        "practice": "Train a binary classifier on two-feature nonlinear samples and save its state_dict.",
+        "quiz": "What is a logit in binary classification?",
+        "options": [
+          "The batch size",
+          "A guaranteed probability between 0 and 1",
+          "An unnormalized prediction score"
+        ],
+        "correct": 2,
+        "explanationAnswer": "An unnormalized prediction score. A complete training pipeline uses train/test splits, a loss function, an optimizer and checkpointing.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "Tokenization & embeddings",
+    "subtitle": "Text becomes token IDs, vectors and attention scores",
+    "theme": "Transformers I",
+    "project": "Tokenizer and embedding explorer",
+    "deliverable": "A notebook that tokenizes text, produces embedding tensors and explains token-shape changes.",
+    "tasks": [
+      "Compare at least two tokenization strategies",
+      "Inspect input IDs, attention masks and padding behavior",
+      "Create toy embedding lookup examples with shapes",
+      "Explain and visualize a tiny attention-softmax example"
+    ],
+    "resources": [
+      [
+        "Hugging Face LLM course",
+        "https://huggingface.co/docs/course/chapter1/1"
+      ],
+      [
+        "Tokenizers documentation",
+        "https://huggingface.co/docs/tokenizers/index"
+      ],
+      [
+        "The Annotated Transformer",
+        "https://nlp.seas.harvard.edu/annotated-transformer/"
+      ]
+    ],
+    "id": "w3",
+    "number": 3,
+    "core": true,
+    "days": [
+      {
+        "id": "d15",
+        "number": 15,
+        "dayInWeek": 1,
+        "week": 3,
+        "title": "Language modeling objectives",
+        "explanation": "Autoregressive models estimate the next token conditional on previous tokens, rather than storing a simple question-answer table.",
+        "practice": "Create a small token sequence and construct shifted input and target IDs.",
+        "quiz": "For a causal LM, what is a training target?",
+        "options": [
+          "The sequence length alone",
+          "The GPU clock rate",
+          "The next token at each position"
+        ],
+        "correct": 2,
+        "explanationAnswer": "The next token at each position. Autoregressive models estimate the next token conditional on previous tokens, rather than storing a simple question-answer table.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d16",
+        "number": 16,
+        "dayInWeek": 2,
+        "week": 3,
+        "title": "Tokenizers and IDs",
+        "explanation": "Tokenizers map text to discrete token IDs. A token is not necessarily a word or a character.",
+        "practice": "Tokenize the same text with a pretrained tokenizer and compare the decoded output.",
+        "quiz": "Do tokenizers always produce one token per word?",
+        "options": [
+          "They do not use numerical IDs",
+          "No; words may split into subword tokens",
+          "Yes, for every language"
+        ],
+        "correct": 1,
+        "explanationAnswer": "No; words may split into subword tokens. Tokenizers map text to discrete token IDs. A token is not necessarily a word or a character.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d17",
+        "number": 17,
+        "dayInWeek": 3,
+        "week": 3,
+        "title": "Subword tokenization intuition",
+        "explanation": "BPE-like tokenization combines frequent pieces into reusable subword units, balancing vocabulary size and sequence length.",
+        "practice": "Count repeated character pairs in a toy corpus and simulate one merge step.",
+        "quiz": "Why use subwords instead of only full words?",
+        "options": [
+          "They can represent uncommon words using shared pieces",
+          "They eliminate context windows",
+          "They avoid embeddings"
+        ],
+        "correct": 0,
+        "explanationAnswer": "They can represent uncommon words using shared pieces. BPE-like tokenization combines frequent pieces into reusable subword units, balancing vocabulary size and sequence length.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d18",
+        "number": 18,
+        "dayInWeek": 4,
+        "week": 3,
+        "title": "Embedding lookup",
+        "explanation": "An embedding table maps token IDs into learned dense vectors that models can operate on.",
+        "practice": "Create an nn.Embedding(100,8), pass token IDs, and inspect the output shape.",
+        "quiz": "For input IDs of shape (2,4) with width 8, output shape is?",
+        "options": [
+          "(8,2)",
+          "(2,8)",
+          "(2,4,8)"
+        ],
+        "correct": 2,
+        "explanationAnswer": "(2,4,8). An embedding table maps token IDs into learned dense vectors that models can operate on.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d19",
+        "number": 19,
+        "dayInWeek": 5,
+        "week": 3,
+        "title": "Position information",
+        "explanation": "Transformers need a mechanism to represent token order because attention by itself does not enforce sequence position.",
+        "practice": "Add toy position vectors to token embeddings and compare two reordered sequences.",
+        "quiz": "Why are position signals useful?",
+        "options": [
+          "They set the model's learning rate",
+          "They help represent token order",
+          "They reduce sequence length to one"
+        ],
+        "correct": 1,
+        "explanationAnswer": "They help represent token order. Transformers need a mechanism to represent token order because attention by itself does not enforce sequence position.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d20",
+        "number": 20,
+        "dayInWeek": 6,
+        "week": 3,
+        "title": "Scaled dot-product attention",
+        "explanation": "Attention uses query-key similarity, a softmax over scores, and weighted sums of value vectors.",
+        "practice": "Calculate a 2-token attention matrix and check row-wise softmax sums.",
+        "quiz": "What should each attention-softmax row sum to?",
+        "options": [
+          "The vocabulary size",
+          "Approximately 1",
+          "Always 0"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Approximately 1. Attention uses query-key similarity, a softmax over scores, and weighted sums of value vectors.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d21",
+        "number": 21,
+        "dayInWeek": 7,
+        "week": 3,
+        "title": "Week 3 project: tokenizer explorer",
+        "explanation": "Link text, token IDs, embedding shapes and attention weights into a coherent pipeline.",
+        "practice": "Build a token/embedding notebook and explain shape transformations for each stage.",
+        "quiz": "What is the primary input to an embedding lookup?",
+        "options": [
+          "A model optimizer",
+          "Integer token IDs",
+          "Checkpoint filenames"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Integer token IDs. Link text, token IDs, embedding shapes and attention weights into a coherent pipeline.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "Transformer inference",
+    "subtitle": "Masks, decoder blocks, sampling, caching and model loading",
+    "theme": "Transformers II",
+    "project": "Local inference comparison notebook",
+    "deliverable": "A runnable inference notebook with prompt controls, seed logging and latency comparisons.",
+    "tasks": [
+      "Draw and explain a minimal decoder transformer block",
+      "Implement toy scaled dot-product attention with causal mask",
+      "Run a small pretrained model with its tokenizer",
+      "Compare two decoding strategies and log latency"
+    ],
+    "resources": [
+      [
+        "Transformers inference pipelines",
+        "https://huggingface.co/docs/transformers/pipeline_tutorial"
+      ],
+      [
+        "Transformers documentation",
+        "https://huggingface.co/docs/transformers/index"
+      ],
+      [
+        "Attention Is All You Need",
+        "https://arxiv.org/abs/1706.03762"
+      ]
+    ],
+    "id": "w4",
+    "number": 4,
+    "core": true,
+    "days": [
+      {
+        "id": "d22",
+        "number": 22,
+        "dayInWeek": 1,
+        "week": 4,
+        "title": "Multi-head attention",
+        "explanation": "Multiple attention heads learn different projections, which are concatenated and projected back into the model dimension.",
+        "practice": "Sketch two heads and verify projected dimensions when splitting the model width.",
+        "quiz": "What is one purpose of multiple attention heads?",
+        "options": [
+          "To train one unrelated model per word",
+          "To remove matrix multiplication",
+          "Different learned attention projections"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Different learned attention projections. Multiple attention heads learn different projections, which are concatenated and projected back into the model dimension.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d23",
+        "number": 23,
+        "dayInWeek": 2,
+        "week": 4,
+        "title": "Causal masking",
+        "explanation": "A causal mask prevents a next-token decoder from attending to tokens that come after the current position.",
+        "practice": "Create a 4x4 lower-triangular attention-visibility mask.",
+        "quiz": "In causal self-attention, a token can see:",
+        "options": [
+          "All future tokens only",
+          "Earlier tokens and itself",
+          "Only the final token"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Earlier tokens and itself. A causal mask prevents a next-token decoder from attending to tokens that come after the current position.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d24",
+        "number": 24,
+        "dayInWeek": 3,
+        "week": 4,
+        "title": "Transformer block anatomy",
+        "explanation": "A decoder block typically contains attention, feed-forward layers, normalization and residual connections.",
+        "practice": "Draw a block diagram with residual paths and track its tensor shapes.",
+        "quiz": "What do residual connections primarily provide?",
+        "options": [
+          "Removal of all parameters",
+          "Guaranteed factual correctness",
+          "A path that helps information and gradients flow"
+        ],
+        "correct": 2,
+        "explanationAnswer": "A path that helps information and gradients flow. A decoder block typically contains attention, feed-forward layers, normalization and residual connections.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d25",
+        "number": 25,
+        "dayInWeek": 4,
+        "week": 4,
+        "title": "Logits, softmax & sampling",
+        "explanation": "Logits are converted to probabilities; temperature adjusts the distribution, and decoding chooses tokens.",
+        "practice": "Compare greedy decoding and temperature-adjusted sampling from example logits.",
+        "quiz": "What does lower temperature often do?",
+        "options": [
+          "Add new training data",
+          "Sharpen the next-token distribution",
+          "Make the vocabulary larger"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Sharpen the next-token distribution. Logits are converted to probabilities; temperature adjusts the distribution, and decoding chooses tokens.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d26",
+        "number": 26,
+        "dayInWeek": 5,
+        "week": 4,
+        "title": "KV cache & inference latency",
+        "explanation": "A KV cache reuses earlier attention key/value computations during autoregressive generation, trading memory for faster token generation.",
+        "practice": "Draw prefill vs decode phases and list what each phase computes.",
+        "quiz": "Why use a KV cache?",
+        "options": [
+          "Retrain the transformer at every token",
+          "Prevent all hallucinations",
+          "Avoid recomputing past keys and values"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Avoid recomputing past keys and values. A KV cache reuses earlier attention key/value computations during autoregressive generation, trading memory for faster token generation.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d27",
+        "number": 27,
+        "dayInWeek": 6,
+        "week": 4,
+        "title": "Loading pretrained models",
+        "explanation": "Loading a model and its matching tokenizer allows reproducible inference with a specified checkpoint and configuration.",
+        "practice": "Run a small pretrained model locally and record prompt, decoding config and latency.",
+        "quiz": "Why pin the model revision?",
+        "options": [
+          "To increase GPU speed automatically",
+          "To reproduce the same checkpoint and tokenizer",
+          "To remove context limits"
+        ],
+        "correct": 1,
+        "explanationAnswer": "To reproduce the same checkpoint and tokenizer. Loading a model and its matching tokenizer allows reproducible inference with a specified checkpoint and configuration.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d28",
+        "number": 28,
+        "dayInWeek": 7,
+        "week": 4,
+        "title": "Week 4 project: inference comparison",
+        "explanation": "A careful inference comparison controls model, prompts, seeds and decoding settings.",
+        "practice": "Compare two decoding settings on fixed prompts and report latency and outputs.",
+        "quiz": "What is a fair comparison strategy?",
+        "options": [
+          "Change prompts and model at the same time",
+          "Evaluate only one selected output",
+          "Hold unrelated experimental conditions constant"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Hold unrelated experimental conditions constant. A careful inference comparison controls model, prompts, seeds and decoding settings.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "Fine-tuning & LoRA",
+    "subtitle": "Dataset hygiene, SFT objectives and parameter-efficient updates",
+    "theme": "Adaptation",
+    "project": "Train a small LoRA adapter",
+    "deliverable": "A tiny supervised dataset, LoRA training run, adapter artifact and baseline comparison.",
+    "tasks": [
+      "Create and validate a small instruction/response dataset",
+      "Record baseline predictions and task metrics",
+      "Train a PEFT LoRA adapter on a suitably small open-weight model",
+      "Evaluate held-out performance and save adapter + metadata"
+    ],
+    "resources": [
+      [
+        "PEFT guide",
+        "https://huggingface.co/docs/peft/index"
+      ],
+      [
+        "LoRA paper",
+        "https://arxiv.org/abs/2106.09685"
+      ],
+      [
+        "Hugging Face datasets",
+        "https://huggingface.co/docs/datasets/index"
+      ]
+    ],
+    "id": "w5",
+    "number": 5,
+    "core": true,
+    "days": [
+      {
+        "id": "d29",
+        "number": 29,
+        "dayInWeek": 1,
+        "week": 5,
+        "title": "Instruction dataset format",
+        "explanation": "Supervised fine-tuning requires consistent prompt, response and masking conventions compatible with the chosen trainer.",
+        "practice": "Design a small JSONL instruction dataset and validate fields.",
+        "quiz": "Why is a consistent dataset schema valuable?",
+        "options": [
+          "It replaces a tokenizer",
+          "It guarantees model reasoning quality",
+          "It prevents preprocessing and supervision mismatches"
+        ],
+        "correct": 2,
+        "explanationAnswer": "It prevents preprocessing and supervision mismatches. Supervised fine-tuning requires consistent prompt, response and masking conventions compatible with the chosen trainer.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d30",
+        "number": 30,
+        "dayInWeek": 2,
+        "week": 5,
+        "title": "Cleaning and deduplication",
+        "explanation": "Duplicates, malformed records and contamination bias both training and evaluation.",
+        "practice": "Write validators for empty responses, duplicate prompts and non-UTF8 data issues.",
+        "quiz": "Why deduplicate before fine-tuning?",
+        "options": [
+          "To reduce redundant examples and leakage risks",
+          "To always eliminate overfitting",
+          "To avoid train/test splits"
+        ],
+        "correct": 0,
+        "explanationAnswer": "To reduce redundant examples and leakage risks. Duplicates, malformed records and contamination bias both training and evaluation.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d31",
+        "number": 31,
+        "dayInWeek": 3,
+        "week": 5,
+        "title": "Splits & leakage prevention",
+        "explanation": "Evaluation examples must not leak into training, even through paraphrases or shared source documents.",
+        "practice": "Split your data by source group and check for near-duplicate overlap.",
+        "quiz": "What is data leakage?",
+        "options": [
+          "When evaluation information enters model training or selection",
+          "When RAM is full",
+          "When outputs are tokenized"
+        ],
+        "correct": 0,
+        "explanationAnswer": "When evaluation information enters model training or selection. Evaluation examples must not leak into training, even through paraphrases or shared source documents.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d32",
+        "number": 32,
+        "dayInWeek": 4,
+        "week": 5,
+        "title": "SFT objectives and masking",
+        "explanation": "Supervised fine-tuning often optimizes token prediction on desired response segments with an appropriate training mask.",
+        "practice": "Inspect an instruction/response batch and identify which tokens contribute to loss.",
+        "quiz": "Why might prompt tokens be masked in SFT?",
+        "options": [
+          "To focus loss on desired response tokens",
+          "To reduce all gradients to zero",
+          "To disable the tokenizer"
+        ],
+        "correct": 0,
+        "explanationAnswer": "To focus loss on desired response tokens. Supervised fine-tuning often optimizes token prediction on desired response segments with an appropriate training mask.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d33",
+        "number": 33,
+        "dayInWeek": 5,
+        "week": 5,
+        "title": "LoRA: low-rank updates",
+        "explanation": "LoRA represents a trainable weight update with two small matrices while holding base weights fixed.",
+        "practice": "Calculate full-matrix vs rank-4 adapter parameter counts.",
+        "quiz": "What is normally frozen in LoRA?",
+        "options": [
+          "Every input embedding always",
+          "The pretrained base weights",
+          "All adapter weights"
+        ],
+        "correct": 1,
+        "explanationAnswer": "The pretrained base weights. LoRA represents a trainable weight update with two small matrices while holding base weights fixed.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d34",
+        "number": 34,
+        "dayInWeek": 6,
+        "week": 5,
+        "title": "Selecting LoRA configuration",
+        "explanation": "Adapter rank, alpha, dropout and target modules affect capacity, compute and which layers can adapt.",
+        "practice": "Compare trainable parameter counts for ranks 4, 8 and 16.",
+        "quiz": "What does adapter rank change?",
+        "options": [
+          "The update's capacity and parameter count",
+          "The dataset's license",
+          "The number of input tokens"
+        ],
+        "correct": 0,
+        "explanationAnswer": "The update's capacity and parameter count. Adapter rank, alpha, dropout and target modules affect capacity, compute and which layers can adapt.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d35",
+        "number": 35,
+        "dayInWeek": 7,
+        "week": 5,
+        "title": "Week 5 project: train an adapter",
+        "explanation": "A clean LoRA experiment saves the adapter plus its base-model reference and configuration.",
+        "practice": "Train a small LoRA adapter with a tiny dataset and compare held-out metrics.",
+        "quiz": "What is usually smaller to save with LoRA?",
+        "options": [
+          "The original dataset as GPU memory",
+          "The adapter checkpoint",
+          "A fully retrained base model"
+        ],
+        "correct": 1,
+        "explanationAnswer": "The adapter checkpoint. A clean LoRA experiment saves the adapter plus its base-model reference and configuration.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "QLoRA & evaluation",
+    "subtitle": "Memory budgets, checkpoints, tests and reproducibility",
+    "theme": "Efficient training",
+    "project": "Memory-aware adapter benchmark",
+    "deliverable": "A controlled experiment report comparing a baseline and efficient adaptation method.",
+    "tasks": [
+      "Estimate model-memory footprints and practical VRAM limits",
+      "Prepare model + training checkpoints and repeatable config",
+      "Run a small, feasible fine-tuning experiment or documented simulation",
+      "Report task quality, retention, latency and GPU-hour estimates"
+    ],
+    "resources": [
+      [
+        "TRL PEFT integration",
+        "https://huggingface.co/docs/trl/main/en/peft_integration"
+      ],
+      [
+        "PEFT quantization",
+        "https://huggingface.co/docs/peft/developer_guides/quantization"
+      ],
+      [
+        "LM Evaluation Harness",
+        "https://github.com/EleutherAI/lm-evaluation-harness"
+      ]
+    ],
+    "id": "w6",
+    "number": 6,
+    "core": true,
+    "days": [
+      {
+        "id": "d36",
+        "number": 36,
+        "dayInWeek": 1,
+        "week": 6,
+        "title": "Quantization and bit width",
+        "explanation": "Quantization stores approximate parameter values in lower-precision representations, reducing model memory at possible accuracy cost.",
+        "practice": "Estimate raw parameter memory for FP16, INT8 and 4-bit formats.",
+        "quiz": "What happens to raw weight storage at 4 bits vs 16 bits?",
+        "options": [
+          "About one-quarter, ignoring overhead",
+          "It doubles",
+          "It stays identical"
+        ],
+        "correct": 0,
+        "explanationAnswer": "About one-quarter, ignoring overhead. Quantization stores approximate parameter values in lower-precision representations, reducing model memory at possible accuracy cost.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d37",
+        "number": 37,
+        "dayInWeek": 2,
+        "week": 6,
+        "title": "QLoRA design",
+        "explanation": "QLoRA combines a quantized frozen backbone with trainable low-rank adapters, often allowing adaptation with less VRAM.",
+        "practice": "Draw the memory layout of base weights, adapters, optimizer states and activations.",
+        "quiz": "Which parts are generally trained in QLoRA?",
+        "options": [
+          "The added adapter parameters",
+          "All 4-bit base weights directly",
+          "Nothing at all"
+        ],
+        "correct": 0,
+        "explanationAnswer": "The added adapter parameters. QLoRA combines a quantized frozen backbone with trainable low-rank adapters, often allowing adaptation with less VRAM.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d38",
+        "number": 38,
+        "dayInWeek": 3,
+        "week": 6,
+        "title": "Gradient accumulation & checkpointing",
+        "explanation": "Accumulation approximates a larger effective batch through multiple microbatches; activation checkpointing trades recomputation for memory.",
+        "practice": "Compute effective batch size and configure a tiny accumulation loop.",
+        "quiz": "If microbatch=2 and accumulation=8, effective batch per worker is?",
+        "options": [
+          "4",
+          "8",
+          "16"
+        ],
+        "correct": 2,
+        "explanationAnswer": "16. Accumulation approximates a larger effective batch through multiple microbatches; activation checkpointing trades recomputation for memory.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d39",
+        "number": 39,
+        "dayInWeek": 4,
+        "week": 6,
+        "title": "Model checkpoints & metadata",
+        "explanation": "A trustworthy checkpoint ties weights or adapters to base revision, tokenizer, dataset, config, and evaluation procedure.",
+        "practice": "Create an experiment manifest with exact revisions, seed and training settings.",
+        "quiz": "Why store a tokenizer revision with a checkpoint?",
+        "options": [
+          "To remove the need for datasets",
+          "To increase GPU temperature",
+          "Token mappings and preprocessing must match"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Token mappings and preprocessing must match. A trustworthy checkpoint ties weights or adapters to base revision, tokenizer, dataset, config, and evaluation procedure.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d40",
+        "number": 40,
+        "dayInWeek": 5,
+        "week": 6,
+        "title": "Quality, retention & cost metrics",
+        "explanation": "A model upgrade needs old-task retention, new-task performance, inference costs and repeatability—not just one accuracy score.",
+        "practice": "Design a result table comparing two methods across five metrics.",
+        "quiz": "What best detects catastrophic forgetting?",
+        "options": [
+          "Only checkpoint byte size",
+          "Only new-task training loss",
+          "Old-task scores before and after an update"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Old-task scores before and after an update. A model upgrade needs old-task retention, new-task performance, inference costs and repeatability—not just one accuracy score.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d41",
+        "number": 41,
+        "dayInWeek": 6,
+        "week": 6,
+        "title": "Ablations & controlled experiments",
+        "explanation": "An ablation changes one experimental factor at a time so observed effects are interpretable.",
+        "practice": "Vary only adapter rank and hold data, seed and training steps constant.",
+        "quiz": "What is the point of an ablation?",
+        "options": [
+          "Maximize unrelated changes",
+          "Remove the baseline",
+          "Isolate the effect of one design decision"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Isolate the effect of one design decision. An ablation changes one experimental factor at a time so observed effects are interpretable.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d42",
+        "number": 42,
+        "dayInWeek": 7,
+        "week": 6,
+        "title": "Week 6 project: efficient update benchmark",
+        "explanation": "Comparing methods requires identical held-out tests and accounting for memory, time and quality.",
+        "practice": "Create an efficiency and retention report with clear limitations.",
+        "quiz": "Which metric alone is insufficient?",
+        "options": [
+          "Held-out accuracy",
+          "Training loss",
+          "GPU-hours with context"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Training loss. Comparing methods requires identical held-out tests and accounting for memory, time and quality.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "Continual learning",
+    "subtitle": "Model drift, catastrophic forgetting and old/new evaluation",
+    "theme": "Research I",
+    "project": "Build a forgetting benchmark",
+    "deliverable": "A two-stage task experiment reporting new-task gain, old-task retention and forgetting.",
+    "tasks": [
+      "Define clearly separated old-task and new-task evaluations",
+      "Measure untouched baseline on both tasks",
+      "Update a small model and re-evaluate all task groups",
+      "Compare against a rehearsal or replay baseline and analyze regressions"
+    ],
+    "resources": [
+      [
+        "Avalanche continual learning",
+        "https://github.com/ContinualAI/avalanche"
+      ],
+      [
+        "Avalanche docs",
+        "https://avalanche.continualai.org/"
+      ],
+      [
+        "LM Evaluation Harness",
+        "https://github.com/EleutherAI/lm-evaluation-harness"
+      ]
+    ],
+    "id": "w7",
+    "number": 7,
+    "core": true,
+    "days": [
+      {
+        "id": "d43",
+        "number": 43,
+        "dayInWeek": 1,
+        "week": 7,
+        "title": "Knowledge drift",
+        "explanation": "A model's knowledge can become stale when facts or task distributions change, even if stable capabilities remain useful.",
+        "practice": "Create dated evaluation questions and classify them as stable vs time-sensitive.",
+        "quiz": "What can drift monitoring reveal?",
+        "options": [
+          "Changing performance on current tasks",
+          "Guaranteed changes in model weights",
+          "The true age of every fact"
+        ],
+        "correct": 0,
+        "explanationAnswer": "Changing performance on current tasks. A model's knowledge can become stale when facts or task distributions change, even if stable capabilities remain useful.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d44",
+        "number": 44,
+        "dayInWeek": 2,
+        "week": 7,
+        "title": "Catastrophic forgetting",
+        "explanation": "Training on new tasks can reduce performance on older tasks as weight updates interfere with prior knowledge.",
+        "practice": "Train sequentially on two toy tasks and measure old-task accuracy after each stage.",
+        "quiz": "What is catastrophic forgetting?",
+        "options": [
+          "Model weights never changing",
+          "Training loss becoming zero",
+          "Old-task performance declining after learning new tasks"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Old-task performance declining after learning new tasks. Training on new tasks can reduce performance on older tasks as weight updates interfere with prior knowledge.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d45",
+        "number": 45,
+        "dayInWeek": 3,
+        "week": 7,
+        "title": "Rehearsal and replay",
+        "explanation": "Replay interleaves a limited sample of older examples during new-task training to mitigate forgetting.",
+        "practice": "Reserve a small replay buffer and compare outcomes with and without replay.",
+        "quiz": "What does replay add to later training?",
+        "options": [
+          "An additional tokenizer",
+          "Selected historical examples",
+          "Only newer labels"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Selected historical examples. Replay interleaves a limited sample of older examples during new-task training to mitigate forgetting.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d46",
+        "number": 46,
+        "dayInWeek": 4,
+        "week": 7,
+        "title": "Regularization-based retention",
+        "explanation": "Methods such as EWC discourage large changes to parameters judged important for earlier tasks, with assumptions and trade-offs.",
+        "practice": "Describe an importance-weighted penalty and compare it to replay conceptually.",
+        "quiz": "What does EWC try to protect?",
+        "options": [
+          "The latest training batch exclusively",
+          "Parameters important for old tasks",
+          "Only the model's filenames"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Parameters important for old tasks. Methods such as EWC discourage large changes to parameters judged important for earlier tasks, with assumptions and trade-offs.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d47",
+        "number": 47,
+        "dayInWeek": 5,
+        "week": 7,
+        "title": "Adapters and task routing",
+        "explanation": "Separate adapters can isolate updates, but a routing decision is needed to choose which capability to apply.",
+        "practice": "Design rules to select among task-specific adapters and identify ambiguous cases.",
+        "quiz": "What challenge comes with multiple adapters?",
+        "options": [
+          "Eliminating all inference overhead",
+          "Guaranteed new-task transfer",
+          "Choosing the correct adapter for a task"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Choosing the correct adapter for a task. Separate adapters can isolate updates, but a routing decision is needed to choose which capability to apply.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d48",
+        "number": 48,
+        "dayInWeek": 6,
+        "week": 7,
+        "title": "Old/new evaluation protocol",
+        "explanation": "Before an update, freeze independent old/new test sets and record baselines; after an update, report both scores.",
+        "practice": "Compute retention and new-task gain from a synthetic before/after table.",
+        "quiz": "Why use the same held-out tests before and after?",
+        "options": [
+          "To increase training samples",
+          "To measure comparable changes",
+          "To guarantee statistical significance"
+        ],
+        "correct": 1,
+        "explanationAnswer": "To measure comparable changes. Before an update, freeze independent old/new test sets and record baselines; after an update, report both scores.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d49",
+        "number": 49,
+        "dayInWeek": 7,
+        "week": 7,
+        "title": "Week 7 project: forgetting benchmark",
+        "explanation": "Reliable continual-learning claims require baseline, updated, and retention-preserving comparison conditions.",
+        "practice": "Run a two-stage toy benchmark and report per-task results and limitations.",
+        "quiz": "What is the strongest evidence of retention?",
+        "options": [
+          "A smaller CSV file",
+          "Stable held-out old-task performance after updating",
+          "A lower new-task training loss alone"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Stable held-out old-task performance after updating. Reliable continual-learning claims require baseline, updated, and retention-preserving comparison conditions.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "AI lifecycle observatory",
+    "subtitle": "Experiment tracking, model registry, metrics and upgrade decisions",
+    "theme": "Research engineering",
+    "project": "Create your research dashboard",
+    "deliverable": "A working evaluation dashboard with versioned runs, comparisons and retain/upgrade/replace recommendations.",
+    "tasks": [
+      "Define model, dataset, run and metric entities",
+      "Persist experimental metrics and checkpoint references",
+      "Build charts for quality, forgetting, latency and costs",
+      "Document your decision rules and audit one model lifecycle"
+    ],
+    "resources": [
+      [
+        "MLflow tracking",
+        "https://mlflow.org/docs/latest/ml/tracking/"
+      ],
+      [
+        "MLflow model registry",
+        "https://mlflow.org/docs/latest/ml/model-registry/"
+      ],
+      [
+        "PyTorch reproducibility",
+        "https://docs.pytorch.org/docs/stable/notes/randomness.html"
+      ]
+    ],
+    "id": "w8",
+    "number": 8,
+    "core": true,
+    "days": [
+      {
+        "id": "d50",
+        "number": 50,
+        "dayInWeek": 1,
+        "week": 8,
+        "title": "Experiment run tracking",
+        "explanation": "Each run should capture inputs, code revision, settings, metrics, and artifacts to enable meaningful comparisons.",
+        "practice": "Create JSON run manifests and a local run table for three experiments.",
+        "quiz": "What is an experiment run ID used for?",
+        "options": [
+          "Encrypting the GPU",
+          "Choosing random answers",
+          "Linking a configuration to its metrics and artifacts"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Linking a configuration to its metrics and artifacts. Each run should capture inputs, code revision, settings, metrics, and artifacts to enable meaningful comparisons.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d51",
+        "number": 51,
+        "dayInWeek": 2,
+        "week": 8,
+        "title": "Model registry & lineage",
+        "explanation": "A registry links deployed versions to checkpoints, dependencies and evaluation approvals.",
+        "practice": "Design model-version and parent-checkpoint records with lifecycle status.",
+        "quiz": "What does lineage answer?",
+        "options": [
+          "Which source data and checkpoints produced a version",
+          "Why every hallucination occurs",
+          "How many CPUs are installed globally"
+        ],
+        "correct": 0,
+        "explanationAnswer": "Which source data and checkpoints produced a version. A registry links deployed versions to checkpoints, dependencies and evaluation approvals.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d52",
+        "number": 52,
+        "dayInWeek": 3,
+        "week": 8,
+        "title": "GPU-hours & quality economics",
+        "explanation": "Compute budgets require separating training cost from ongoing inference, maintenance, and storage.",
+        "practice": "Estimate GPU-hours = devices × runtime hours and compare two upgrade methods.",
+        "quiz": "If 2 GPUs each run for 3 hours, how many GPU-hours?",
+        "options": [
+          "6",
+          "1.5",
+          "3"
+        ],
+        "correct": 0,
+        "explanationAnswer": "6. Compute budgets require separating training cost from ongoing inference, maintenance, and storage.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d53",
+        "number": 53,
+        "dayInWeek": 4,
+        "week": 8,
+        "title": "Dataset versioning",
+        "explanation": "Versioned datasets and immutable splits keep experiments comparable as training content changes.",
+        "practice": "Create dataset version IDs, SHA-256 hashes and evaluation-set policies.",
+        "quiz": "Why pin a test-set revision?",
+        "options": [
+          "To avoid using metrics",
+          "To compare models against the same questions",
+          "To force the model to remember facts"
+        ],
+        "correct": 1,
+        "explanationAnswer": "To compare models against the same questions. Versioned datasets and immutable splits keep experiments comparable as training content changes.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d54",
+        "number": 54,
+        "dayInWeek": 5,
+        "week": 8,
+        "title": "Benchmark dashboards",
+        "explanation": "A dashboard should show actual observed metrics and make baselines, uncertainty and regressions visible.",
+        "practice": "Plot old/new accuracy and total cost for versioned runs; label all demo numbers.",
+        "quiz": "Which dashboard choice is misleading?",
+        "options": [
+          "Showing baseline metrics",
+          "Mixing illustrative and actual numbers without labels",
+          "Showing confidence intervals"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Mixing illustrative and actual numbers without labels. A dashboard should show actual observed metrics and make baselines, uncertainty and regressions visible.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d55",
+        "number": 55,
+        "dayInWeek": 6,
+        "week": 8,
+        "title": "Lifecycle decision rules",
+        "explanation": "Upgrade, retain, specialize, archive, or replace should follow explicit performance and total-cost thresholds.",
+        "practice": "Write a rule-based selector for a model that fails new-data benchmarks.",
+        "quiz": "What should guide a replacement decision?",
+        "options": [
+          "Only the training loss",
+          "Only the model's release year",
+          "Quality, constraints and total lifecycle cost"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Quality, constraints and total lifecycle cost. Upgrade, retain, specialize, archive, or replace should follow explicit performance and total-cost thresholds.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d56",
+        "number": 56,
+        "dayInWeek": 7,
+        "week": 8,
+        "title": "Week 8 project: observatory dashboard",
+        "explanation": "A useful observatory links data lineage, experiment evidence, costs and an explainable recommendation.",
+        "practice": "Implement an experiment registry UI and compare model-update strategies.",
+        "quiz": "What makes a dashboard recommendation auditable?",
+        "options": [
+          "An explanation tied to recorded metrics and rules",
+          "An unexplained single score",
+          "Removing the baseline"
+        ],
+        "correct": 0,
+        "explanationAnswer": "An explanation tied to recorded metrics and rules. A useful observatory links data lineage, experiment evidence, costs and an explainable recommendation.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  },
+  {
+    "title": "Independent research capstone",
+    "subtitle": "Design an original model-longevity experiment and publish a repeatable report",
+    "theme": "Optional capstone",
+    "project": "Model longevity research mini-paper",
+    "deliverable": "A self-contained research report with datasets, configs, figures, limitations and repeatability instructions.",
+    "tasks": [
+      "Write a falsifiable model-longevity hypothesis and evaluation protocol",
+      "Freeze the data splits and baseline configuration",
+      "Run at least two upgrade strategies under documented constraints",
+      "Write results, caveats, costs and next-research questions"
+    ],
+    "resources": [
+      [
+        "PyTorch reproducibility",
+        "https://docs.pytorch.org/docs/stable/notes/randomness.html"
+      ],
+      [
+        "MLflow tracking",
+        "https://mlflow.org/docs/latest/ml/tracking/"
+      ],
+      [
+        "Paper: LoRA",
+        "https://arxiv.org/abs/2106.09685"
+      ]
+    ],
+    "id": "w9",
+    "number": 9,
+    "core": false,
+    "days": [
+      {
+        "id": "d57",
+        "number": 57,
+        "dayInWeek": 1,
+        "week": 9,
+        "title": "Write a falsifiable hypothesis",
+        "explanation": "A research hypothesis makes a measurable prediction that an experiment could disprove.",
+        "practice": "Define a quality-retention-cost hypothesis and criteria for rejecting it.",
+        "quiz": "What makes a hypothesis falsifiable?",
+        "options": [
+          "Evidence could show it is wrong",
+          "It avoids measurable variables",
+          "It always predicts improvement"
+        ],
+        "correct": 0,
+        "explanationAnswer": "Evidence could show it is wrong. A research hypothesis makes a measurable prediction that an experiment could disprove.",
+        "duration": 75,
+        "difficulty": "Foundational"
+      },
+      {
+        "id": "d58",
+        "number": 58,
+        "dayInWeek": 2,
+        "week": 9,
+        "title": "Design evaluation datasets",
+        "explanation": "Use independent datasets with dated facts, stable knowledge and general reasoning tests; remove contamination.",
+        "practice": "Freeze data splits, labels and scoring scripts, and document provenance.",
+        "quiz": "What should never be tuned on repeatedly?",
+        "options": [
+          "A final held-out test set",
+          "A training subset",
+          "A validation subset"
+        ],
+        "correct": 0,
+        "explanationAnswer": "A final held-out test set. Use independent datasets with dated facts, stable knowledge and general reasoning tests; remove contamination.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d59",
+        "number": 59,
+        "dayInWeek": 3,
+        "week": 9,
+        "title": "Freeze baseline & budgets",
+        "explanation": "Measure unchanged models before intervention and define equal budgets and acceptable regression thresholds.",
+        "practice": "Record baseline metrics and compute budget in an immutable manifest.",
+        "quiz": "Why measure the baseline first?",
+        "options": [
+          "To avoid calculating costs",
+          "To quantify whether an intervention improves outcomes",
+          "To choose a tokenizer randomly"
+        ],
+        "correct": 1,
+        "explanationAnswer": "To quantify whether an intervention improves outcomes. Measure unchanged models before intervention and define equal budgets and acceptable regression thresholds.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d60",
+        "number": 60,
+        "dayInWeek": 4,
+        "week": 9,
+        "title": "Execute two upgrade strategies",
+        "explanation": "Hold evaluation constant while comparing methods such as RAG, LoRA or continued training.",
+        "practice": "Run two feasible interventions with logged configs and failure handling.",
+        "quiz": "What is necessary for a valid method comparison?",
+        "options": [
+          "Only a qualitative impression",
+          "Same independent evaluation protocol",
+          "Different metrics for every model"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Same independent evaluation protocol. Hold evaluation constant while comparing methods such as RAG, LoRA or continued training.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d61",
+        "number": 61,
+        "dayInWeek": 5,
+        "week": 9,
+        "title": "Analyze forgetting and uncertainty",
+        "explanation": "Report per-task changes, error types and variance across seeds if possible; distinguish illustrative from measured values.",
+        "practice": "Create result charts and discuss uncertainty, limitations and alternative explanations.",
+        "quiz": "Why report task-level scores?",
+        "options": [
+          "They remove data leakage",
+          "They guarantee causation",
+          "Aggregates can hide important regressions"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Aggregates can hide important regressions. Report per-task changes, error types and variance across seeds if possible; distinguish illustrative from measured values.",
+        "duration": 75,
+        "difficulty": "Advanced"
+      },
+      {
+        "id": "d62",
+        "number": 62,
+        "dayInWeek": 6,
+        "week": 9,
+        "title": "Publish a reproducible report",
+        "explanation": "A credible research artifact includes code, environment, datasets, exact configs and limitations.",
+        "practice": "Prepare README, scripts, evaluation tables and an explicit reproducibility checklist.",
+        "quiz": "What belongs in a reproducible report?",
+        "options": [
+          "Only a screenshot of a chart",
+          "Configs, data provenance, metrics and limitations",
+          "Only the author's conclusion"
+        ],
+        "correct": 1,
+        "explanationAnswer": "Configs, data provenance, metrics and limitations. A credible research artifact includes code, environment, datasets, exact configs and limitations.",
+        "duration": 75,
+        "difficulty": "Applied"
+      },
+      {
+        "id": "d63",
+        "number": 63,
+        "dayInWeek": 7,
+        "week": 9,
+        "title": "Week 9 capstone: model longevity",
+        "explanation": "Turn measurements into a defensible decision about upgrade versus replacement under defined constraints.",
+        "practice": "Present a mini-paper and identify one next experiment capable of changing your conclusion.",
+        "quiz": "What would justify choosing an older upgraded model?",
+        "options": [
+          "Its age alone",
+          "A single successful prompt",
+          "Meeting quality and cost constraints on independent evaluation"
+        ],
+        "correct": 2,
+        "explanationAnswer": "Meeting quality and cost constraints on independent evaluation. Turn measurements into a defensible decision about upgrade versus replacement under defined constraints.",
+        "duration": 120,
+        "difficulty": "Project"
+      }
+    ]
+  }
+]

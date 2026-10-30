@@ -24,7 +24,7 @@ The learning experience works without downloading Python packages, but actual Py
 - Search across the curriculum, notes and bookmarks, adjustable focus timer (1–120 min, with a completion beep), manual study-time recording.
 - Dynamic charts and weekly progress analytics based on saved user data.
 - 7-skill, 0–21 self-rated readiness assessment with local recommendations.
-- Light and dark **monochrome** themes, mobile navigation, and JSON export/import/reset.
+- Light and dark themes built on a slate color scale with a single mauve primary accent, mobile navigation, and JSON export/import/reset.
 
 ## Technology and privacy
 
@@ -40,19 +40,20 @@ The interface remains usable if these CDNs are blocked: it has its own CSS and S
 
 The app runs **numerical JavaScript demonstrations**, not Python training, neural model inference or real GPU experiments. Example benchmark values in lessons and labs are explicitly hypothetical. Do not confuse practice checkmarks with formal skill validation.
 
-## Source files (in this ZIP)
+## Source files
 
-- `index.html` — standalone downloadable LMS.
-- `app.js` — all interactive UI and persistence code.
-- `template.html` — static HTML and CSS template.
-- `curriculum.json` — curriculum, quiz, weekly project, and resource data.
-- `snippets.json` — Python/shell examples by day.
-- `build.py` — rebuilds `index.html` from the editable sources (`python3 build.py`).
+- `index.html` — the generated standalone LMS, distributed/downloaded from the project root.
+- `builder/` — all editable build sources live here:
+  - `builder/app.js` — all interactive UI and persistence code.
+  - `builder/template.html` — static HTML and CSS template.
+  - `builder/curriculum.json` — curriculum, quiz, weekly project, and resource data.
+  - `builder/snippets.json` — Python/shell examples by day.
+  - `builder/build.py` — rebuilds `index.html` into the project root (`python3 builder/build.py`).
 - `previews/` — reference screenshots of the interface.
 
 ## Editing and extending
 
-To modify the course, edit `curriculum.json` or `snippets.json`, change `app.js` or `template.html`, then run `python3 build.py`. You do not need Node.js to build the app. Keep exactly one stable ID per day (`d1`–`d63`) to preserve compatibility with existing backups. If you change the state schema, add an explicit versioned migration and test backup import before distributing.
+To modify the course, edit `builder/curriculum.json` or `builder/snippets.json`, change `builder/app.js` or `builder/template.html`, then run `python3 builder/build.py` from the project root. The generated `index.html` always lands in the project root, regardless of where you invoke the script from. You do not need Node.js to build the app. Keep exactly one stable ID per day (`d1`–`d63`) to preserve compatibility with existing backups. If you change the state schema, add an explicit versioned migration and test backup import before distributing.
 
 ## Content boundaries
 
